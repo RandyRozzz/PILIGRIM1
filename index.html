@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенческий Театр «Пилигрим»</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Логотип театра Пилигрим">
+        </div>
+    </header>
+
+    <div class="sub-header">
+        <p>О нашем театре</p>
+    </div>
+
+    <main>
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Основатель театра - Зинаида Игнатьевна Басаргина</strong>, опытный педагог и отличный наставник, режиссер областного телевидения.</p>
+                    <p><strong>1968 год:</strong> театр основан на базе педагогического института им. К.Д. Ушинского.</p>
+                    <p><strong>1973 год:</strong> получил звание народного студенческого театра.</p>
+                    <p>Режиссер театра выпускает по два полнометражных спектакля в год, а также новогодние утренники, шоу-программы (первое сентября, день Театра, день Победы, Наурыз, День Независимости).</p>
+                    <p>Театр работает с творческим коллективом студенческого клуба и всегда готов прийти на помощь в организации и проведении мероприятия.</p>
+                </div>
+                <div class="about-image">
+                    <img src="theater_photo.png" alt="Фотография театра">
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2>FAQ</h2>
+            <div>
+                <h3>Что значит «народный театр»?</h3>
+                <p>В СССР с 1959 года звание "Народный театр" присваивалось успешным самодеятельным театрам с постоянной труппой, обширным репертуаром и залом для регулярных спектаклей. Студенческий театр «Пилигрим» получил это звание в 1973 году.</p>
+            </div>
+            <div>
+                <h3>Как попасть на спектакль?</h3>
+                <p>Во-первых, нужно постоянно посещать репетиции и стараться не пропускать. Во-вторых, внимательно слушать режиссёра и исправлять ошибки. В-третьих, пройти читку ролей и получить одобрение режиссёра. Если вас утвердили на роль - поздравляем!</p>
+            </div>
+            <div>
+                <h3>Как перестать бояться сцены?</h3>
+                <p>Очень просто. Нужно как можно больше находиться на сцене. Постепенно страх уйдёт, и появится уверенность.</p>
+            </div>
+            <div>
+                <h3>Если у меня совсем нет опыта, возьмут ли меня в театр?</h3>
+                <p>Да, конечно. Мы готовы принять в труппу даже тех, кто не обучается в нашем университете.</p>
+            </div>
+            <div>
+                <h3>Чем можно гордиться в вашем театре?</h3>
+                <p>Нашей богатой историей, талантливыми актёрами и дружной атмосферой.</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2>Галерея «Пилигрим»</h2>
+            <div id="gallery-content"></div>
+            <button onclick="loadMoreImages()">Загрузить еще</button>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <p>Адрес: 150000, Казахстан, Петропавловск, ул. Пушкина, 86</p>
+            <p>Почта: <a href="mailto:mail@ku.edu.kz">mail@ku.edu.kz</a></p>
+            <p>Телефон: +7 (7152) 49-33-42, +7 771 406 80 47, +7 707 354 67 19</p>
+        </section>
+
+        <section id="rehearsals" class="rehearsals-section">
+            <h2>Расписание репетиций</h2>
+            <p>Наши репетиции проходят каждую неделю по понедельникам, средам и пятницам в 18:00.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Студенческий Театр «Пилигрим». Все права защищены.</p>
+    </footer>
+
+    <script>
+        const galleryImages = [
+            'gallery/1.jpg', 'gallery/2.jpg', 'gallery/3.jpg'
+        ];
+        let imagesLoaded = 0;
+
+        function loadMoreImages() {
+            const galleryContent = document.getElementById('gallery-content');
+            for (let i = imagesLoaded; i < imagesLoaded + 4 && i < galleryImages.length; i++) {
+                const img = document.createElement('img');
+                img.src = galleryImages[i];
+                img.alt = `Галерея изображение ${i + 1}`;
+                img.classList.add('gallery-image');
+                galleryContent.appendChild(img);
+            }
+            imagesLoaded += 4;
+            if (imagesLoaded >= galleryImages.length) {
+                document.querySelector('button').style.display = 'none';
+            }
+        }
+
+        window.onload = function() {
+            loadMoreImages();
+        };
+    </script>
+</body>
+</html>
